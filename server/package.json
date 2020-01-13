@@ -1,0 +1,33 @@
+{
+  "name": "kids-learning",
+  "version": "1.0.0",
+  "description": "kids learning app in MERN stack with GraphQL services",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
+    "test": "npm test"
+  },
+  "keywords": [
+    "Node",
+    "GraphQA",
+    "Apollo",
+    "Expresss",
+    "MongoDB"
+  ],
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "author": "jeshuBrij",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.9.16",
+    "graphql": "^14.5.8"
+  }
+}
