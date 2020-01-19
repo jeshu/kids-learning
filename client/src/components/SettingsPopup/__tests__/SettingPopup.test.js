@@ -1,5 +1,5 @@
 import React from "react";
-import { render,  screen, fireEvent } from "@testing-library/react";
+import { render,  screen, fireEvent, wait } from "@testing-library/react";
 import SettingPopup from "../";
 
 describe('Test suit for Setting popup', () => {
@@ -15,13 +15,16 @@ describe('Test suit for Setting popup', () => {
         expect(screen.queryByTestId('settings-popup')).toBeInTheDocument();
     })
     
-    it('should not be in the dom once close btn clicked', () => {
+    it('should not be in the dom once close btn clicked', async () => {
         const onClose = jest.fn();
         let showState = true;
-        const {getByTestId, rerender} = render(<SettingPopup show={showState} onClose={onClose}  />);
+        const {rerender} = render(<SettingPopup show={showState} onClose={onClose}  />);
         fireEvent.click(screen.queryByTestId('settings-close'));
         expect(onClose).toHaveBeenCalled();
-
+        rerender(<SettingPopup show={false} onClose={onClose}  />);
+        await wait(()=>{
+            expect(screen.queryByTestId('settings-popup')).toBeNull();
+        });
     })
     
     it('should have dropdown to change music', () => {

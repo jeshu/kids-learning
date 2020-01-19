@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import {makeStyles} from '@material-ui/core/styles'
-import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles'
+import { AppBar, Toolbar, IconButton, Typography, Container } from '@material-ui/core';
 import SettingPopup from '../SettingsPopup';
 import { Settings } from '@material-ui/icons';
 const useStyles = makeStyles(theme => ({
@@ -15,25 +15,28 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-function Header({onSettingsUpdate}) {
+function Header({ onSettingsUpdate }) {
     const [settingStatus, setSettingStatus] = useState(false)
     const classes = useStyles();
-    const showSettings = ()=> {
+    const showSettings = () => {
         setSettingStatus(true);
     };
-    
-    const hideSettings = () =>{
+
+    const hideSettings = () => {
         setSettingStatus(false);
     };
     return (
         <div data-testid="header-component">
             <AppBar position="static">
-                <Toolbar>
-                    <Typography variant="h6" className={classes.title} data-testid="logo">Kids Learning</Typography>
-                    <IconButton color="inherit" onClick={showSettings} data-testid="settings-btn">
-                        <Settings />
-                    </IconButton>
-                </Toolbar>
+                <Container>
+
+                    <Toolbar>
+                        <Typography variant="h6" className={classes.title} data-testid="logo">Kids Learning</Typography>
+                        <IconButton color="inherit" onClick={showSettings} data-testid="settings-btn">
+                            <Settings />
+                        </IconButton>
+                    </Toolbar>
+                </Container>
             </AppBar>
             <SettingPopup show={settingStatus} onClose={hideSettings} onSettingsUpdate={onSettingsUpdate} />
         </div>
