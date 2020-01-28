@@ -18,7 +18,7 @@ exports[`tests for component DashboardItem should render without errors with but
       type="button"
     >
       <div
-        class="MuiCardMedia-root"
+        class="MuiCardMedia-root makeStyles-cardImage-2"
         style="background-image: url(someImagePath);"
         title="someDummyTitle"
       />

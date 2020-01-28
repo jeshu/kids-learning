@@ -1,10 +1,11 @@
 import React from 'react';
-import Dashboard from "..";
+import {Dashboard} from "..";
 import { render } from "@testing-library/react";
 
 
 describe('test suit for dashboard', () => {
     const props = {
+        loadData:jest.fn(),
         data:[{
             title:"title-1",
             path:"path-1",
